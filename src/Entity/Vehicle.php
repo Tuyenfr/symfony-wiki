@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\VehicleRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: VehicleRepository::class)]
@@ -22,6 +23,12 @@ class Vehicle
     #[ORM\ManyToOne(inversedBy: 'vehicles')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $calendar_start_date = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $calendar_end_date = null;
 
     public function getId(): ?int
     {
@@ -60,6 +67,30 @@ class Vehicle
     public function setUser(?User $user): static
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getCalendarStartDate(): ?\DateTimeInterface
+    {
+        return $this->calendar_start_date;
+    }
+
+    public function setCalendarStartDate(\DateTimeInterface $calendar_start_date): static
+    {
+        $this->calendar_start_date = $calendar_start_date;
+
+        return $this;
+    }
+
+    public function getCalendarEndDate(): ?\DateTimeInterface
+    {
+        return $this->calendar_end_date;
+    }
+
+    public function setCalendarEndDate(\DateTimeInterface $calendar_end_date): static
+    {
+        $this->calendar_end_date = $calendar_end_date;
 
         return $this;
     }
