@@ -47,6 +47,9 @@ class Vehicle
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updatedAt = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $numberplate = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -146,5 +149,17 @@ class Vehicle
     public function getImageSize(): ?int
     {
         return $this->imageSize;
+    }
+
+    public function getNumberplate(): ?string
+    {
+        return $this->numberplate;
+    }
+
+    public function setNumberplate(string $numberplate): static
+    {
+        $this->numberplate = $numberplate;
+
+        return $this;
     }
 }
