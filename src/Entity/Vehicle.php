@@ -77,6 +77,9 @@ class Vehicle
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
+    #[ORM\Column]
+    private ?int $places_nb = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -294,6 +297,18 @@ class Vehicle
     public function setDescription(?string $description): static
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getPlacesNb(): ?int
+    {
+        return $this->places_nb;
+    }
+
+    public function setPlacesNb(int $places_nb): static
+    {
+        $this->places_nb = $places_nb;
 
         return $this;
     }

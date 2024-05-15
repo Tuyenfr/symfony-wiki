@@ -26,6 +26,9 @@ class VehicleCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
 
+        $mappingsParams = $this->getParameter('vich_uploader.mappings');
+        $vehiclesImagesPath = $mappingsParams['vehicles']['uri_prefix']; // équivaut à 'images/vehicles/'
+
         yield TextField::new('brand', 'Marque');
         yield TextField::new('model', 'Modèle');
         yield TextField::new('numberplate', 'Immatriculation');
@@ -35,12 +38,13 @@ class VehicleCrudController extends AbstractCrudController
         yield TextField::new('fuel_type', 'Carburant');
         yield IntegerField::new('kms', 'Kilométrage')->hideOnIndex();
         yield DateField::new('year', 'Année')->hideOnIndex();
-        yield TextField::new('fuel_consumption', 'Consommation')->hideOnIndex();
+        yield IntegerField::new('fuel_consumption', 'Consommation')->hideOnIndex();
         yield TextField::new('adblue', 'Adblue')->hideOnIndex();
         yield TextEditorField::new('description', 'Description')->hideOnIndex();
+        yield IntegerField::new('places_nb', 'Nb de places')->hideOnIndex();
         yield AssociationField::new('user', 'Utilisateur');
         yield TextareaField::new('imageFile')->setFormType(VichImageType::class)->hideOnIndex();
-        yield ImageField::new('imageName')->setBasePath('images/vehicles/')->hideOnForm();
+        yield ImageField::new('imageName')->setBasePath($vehiclesImagesPath)->hideOnForm();
         yield DateField::new('calendar_start_date', 'Début calendrier');
         yield DateField::new('calendar_end_date', 'Fin calendrier');
         
