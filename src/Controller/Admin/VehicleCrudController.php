@@ -32,6 +32,8 @@ class VehicleCrudController extends AbstractCrudController
         yield TextField::new('gearbox', 'Boîte de vitesse');
         yield TextField::new('fuel_type', 'Carburant');
         yield TextField::new('kms', 'Kilométrage');
+        yield DateField::new('year', 'Année');
+        yield TextField::new('fuel_consumption', 'Consommation');
         yield TextField::new('adblue', 'Adblue');
         yield TextEditorField::new('description', 'Description');
         yield AssociationField::new('user', 'Utilisateur');
