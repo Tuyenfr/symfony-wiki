@@ -27,16 +27,16 @@ class VehicleCrudController extends AbstractCrudController
 
         yield TextField::new('brand', 'Marque');
         yield TextField::new('model', 'Modèle');
-        yield TextField::new('numberplate', 'Plaque d\'immatriculation');
-        yield IntegerField::new('length', 'Longueur');
-        yield IntegerField::new('height', 'Hauteur');
+        yield TextField::new('numberplate', 'Immatriculation');
+        yield IntegerField::new('length', 'Longueur')->hideOnIndex();
+        yield IntegerField::new('height', 'Hauteur')->hideOnIndex();
         yield TextField::new('gearbox', 'Boîte de vitesse');
         yield TextField::new('fuel_type', 'Carburant');
-        yield IntegerField::new('kms', 'Kilométrage');
-        yield DateField::new('year', 'Année');
-        yield TextField::new('fuel_consumption', 'Consommation');
-        yield TextField::new('adblue', 'Adblue');
-        yield TextEditorField::new('description', 'Description');
+        yield IntegerField::new('kms', 'Kilométrage')->hideOnIndex();
+        yield DateField::new('year', 'Année')->hideOnIndex();
+        yield TextField::new('fuel_consumption', 'Consommation')->hideOnIndex();
+        yield TextField::new('adblue', 'Adblue')->hideOnIndex();
+        yield TextEditorField::new('description', 'Description')->hideOnIndex();
         yield AssociationField::new('user', 'Utilisateur');
         yield TextareaField::new('imageFile')->setFormType(VichImageType::class)->hideOnIndex();
         yield ImageField::new('imageName')->setBasePath('images/vehicles/')->hideOnForm();
