@@ -50,6 +50,33 @@ class Vehicle
     #[ORM\Column(length: 255)]
     private ?string $numberplate = null;
 
+    #[ORM\Column]
+    private ?float $length = null;
+
+    #[ORM\Column]
+    private ?float $height = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $gearbox = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $fuel_type = null;
+
+    #[ORM\Column]
+    private ?int $kms = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $year = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $fuel_consumption = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $adblue = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $description = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -159,6 +186,114 @@ class Vehicle
     public function setNumberplate(string $numberplate): static
     {
         $this->numberplate = $numberplate;
+
+        return $this;
+    }
+
+    public function getLength(): ?float
+    {
+        return $this->length;
+    }
+
+    public function setLength(float $length): static
+    {
+        $this->length = $length;
+
+        return $this;
+    }
+
+    public function getHeight(): ?float
+    {
+        return $this->height;
+    }
+
+    public function setHeight(float $height): static
+    {
+        $this->height = $height;
+
+        return $this;
+    }
+
+    public function getGearbox(): ?string
+    {
+        return $this->gearbox;
+    }
+
+    public function setGearbox(string $gearbox): static
+    {
+        $this->gearbox = $gearbox;
+
+        return $this;
+    }
+
+    public function getFuelType(): ?string
+    {
+        return $this->fuel_type;
+    }
+
+    public function setFuelType(string $fuel_type): static
+    {
+        $this->fuel_type = $fuel_type;
+
+        return $this;
+    }
+
+    public function getKms(): ?int
+    {
+        return $this->kms;
+    }
+
+    public function setKms(int $kms): static
+    {
+        $this->kms = $kms;
+
+        return $this;
+    }
+
+    public function getYear(): ?\DateTimeInterface
+    {
+        return $this->year;
+    }
+
+    public function setYear(\DateTimeInterface $year): static
+    {
+        $this->year = $year;
+
+        return $this;
+    }
+
+    public function getFuelConsumption(): ?string
+    {
+        return $this->fuel_consumption;
+    }
+
+    public function setFuelConsumption(?string $fuel_consumption): static
+    {
+        $this->fuel_consumption = $fuel_consumption;
+
+        return $this;
+    }
+
+    public function getAdblue(): ?string
+    {
+        return $this->adblue;
+    }
+
+    public function setAdblue(?string $adblue): static
+    {
+        $this->adblue = $adblue;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): static
+    {
+        $this->description = $description;
 
         return $this;
     }
