@@ -8,8 +8,9 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
-#[ORM\Entity(repositoryClass: VehicleRepository::class)]
 #[Vich\Uploadable]
+#[ORM\Entity(repositoryClass: VehicleRepository::class)]
+
 
 class Vehicle
 {

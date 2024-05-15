@@ -23,6 +23,7 @@ class VehicleCrudController extends AbstractCrudController
     
     public function configureFields(string $pageName): iterable
     {
+
         
         yield IdField::new('id');
         yield TextField::new('brand', 'marque');
