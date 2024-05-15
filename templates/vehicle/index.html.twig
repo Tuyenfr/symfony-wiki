@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vehicle{% endblock %}
+
+{% block body %}
+
+<div class="row" style="margin-top: 80px">
+
+{% for vehicle in vehicles %}
+
+<div class="col-md-4 my-2 d-flex">
+    <div class="card w-100">
+        <img src="{{ vich_uploader_asset(vehicle, 'imageFile') }}" alt="vehicle">
+        <div class="card-body">
+            <h4>{{ vehicle.brand }} {{ vehicle.model }} </h4>
+            <p style="font-size: 12px"> {{ vehicle.description|raw }} </p>
+            <a hef="#" class="btn btn-secondary">Voir détails</a>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}
