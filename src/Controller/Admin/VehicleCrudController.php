@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -28,8 +29,8 @@ class VehicleCrudController extends AbstractCrudController
         yield TextField::new('brand', 'Marque');
         yield TextField::new('model', 'Modèle');
         yield TextField::new('numberplate', 'Immatriculation');
-        yield IntegerField::new('length', 'Longueur')->hideOnIndex();
-        yield IntegerField::new('height', 'Hauteur')->hideOnIndex();
+        yield NumberField::new('length', 'Longueur')->hideOnIndex();
+        yield NumberField::new('height', 'Hauteur')->hideOnIndex();
         yield TextField::new('gearbox', 'Boîte de vitesse');
         yield TextField::new('fuel_type', 'Carburant');
         yield IntegerField::new('kms', 'Kilométrage')->hideOnIndex();
