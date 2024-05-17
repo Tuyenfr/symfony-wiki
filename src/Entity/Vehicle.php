@@ -80,6 +80,15 @@ class Vehicle
     #[ORM\Column]
     private ?int $places_nb = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $City = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $Country = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $Zip = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -309,6 +318,42 @@ class Vehicle
     public function setPlacesNb(int $places_nb): static
     {
         $this->places_nb = $places_nb;
+
+        return $this;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->City;
+    }
+
+    public function setCity(string $City): static
+    {
+        $this->City = $City;
+
+        return $this;
+    }
+
+    public function getCountry(): ?string
+    {
+        return $this->Country;
+    }
+
+    public function setCountry(string $Country): static
+    {
+        $this->Country = $Country;
+
+        return $this;
+    }
+
+    public function getZip(): ?string
+    {
+        return $this->Zip;
+    }
+
+    public function setZip(string $Zip): static
+    {
+        $this->Zip = $Zip;
 
         return $this;
     }
