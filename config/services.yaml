@@ -26,3 +26,7 @@ services:
     App\Entity\Vehicle:
         autowire: true
         autoconfigure: true
+
+    App\Entity\WikiGlobalCalendar:
+        autowire: true
+        autoconfigure: true

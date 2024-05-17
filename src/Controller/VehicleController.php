@@ -21,6 +21,7 @@ class VehicleController extends AbstractController
         return $this->render('vehicle/index.html.twig', [
             'vehicles' => $vehicles,
             'websitename' => $websiteName
+
         ]);
     }
 
@@ -34,7 +35,6 @@ class VehicleController extends AbstractController
         }
         
         $websiteName = 'Wikicampers';
-
 
         return $this->render('vehicle/show.html.twig', [
             'vehicle' => $vehicle,
