@@ -4,11 +4,11 @@
 
 {% block body %}
 
-<div class="row" style="margin-top: 80px">
+<div class="row justify-content-center" style="margin-top: 80px">
 
 <div class="col-md-4 my-2 d-flex">
     <div class="card w-100">
-        <img src="{{ vich_uploader_asset(vehicle, 'imageFile')}}" height="430" alt="vehicle">
+        <img src="{{ vich_uploader_asset(vehicle, 'imageFile')}}" class="img-fluid" alt="vehicle">
         <div class="card-body">
             <h4>{{ vehicle.brand }} {{ vehicle.model }} </h4>
             <p style="font-size: 12px"> {{ vehicle.description|raw }} </p>
