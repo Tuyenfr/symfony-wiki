@@ -53,7 +53,6 @@ class VehicleController extends AbstractController
             $price = $vehicleArray[0]['price_per_day'];
             $singleCalendar->updatePricePerDay($price);
             $dates = $singleCalendar->dates;
-            //var_dump($singleCalendar->dates);
     
         }
 
