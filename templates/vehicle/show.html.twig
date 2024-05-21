@@ -5,7 +5,7 @@
 
 {% block body %}
 
-	<div class="row justify-content-center" style="margin-top: 80px">
+	<div class="row justify-content-center" style="margin-top: 60px">
 
 		<div class="col-md-4 my-2 d-flex">
 			<div class="card w-100">
@@ -21,27 +21,29 @@
 			</div>
 		</div>
 
-		<div class="row justify-content-center" style="margin-top: 80px">
-			<div class="col-md-4 my-2">
+		<div class="justify-content-center d-flex" style="margin-top: 30px">
 				<h3>Calendrier</h3>
-
-				{% for date in dates %}
-					<div>
-						<p>
-							{{ date.month }}
-							{{ date.year }}</p>
-						<p>
-							{{ date.weekday }}
-						</p>
-						<p>
-							{{ date.day }}
-						</p>
-                        <p>
-							{{ date.pricePerDay }} €
-						</p>
-					</div>
-				{% endfor %}
-			</div>
 		</div>
+
+		<div class="justify-content-center" id="calendar" style="margin-top: 20px; margin-bottom: 100px">
+			{% for date in dates %}
+				<div class="color">
+					<p>
+						{{ date.month }} {{ date.year }}
+						<br>
+						{{ date.weekday }}
+						<br>
+						{{ date.day }}
+						<br>
+						{{ date.pricePerDay }}
+						€
+					</p>
+				</div>
+
+			{% endfor %}
+		</div>
+
+	<div style="height: 300px">
+	</div>
 
 	{% endblock %}

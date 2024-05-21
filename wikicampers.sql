@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3308
--- Généré le : mar. 21 mai 2024 à 11:21
+-- Généré le : mar. 21 mai 2024 à 18:10
 -- Version du serveur : 8.2.0
 -- Version de PHP : 8.2.13
 
@@ -161,7 +161,7 @@ CREATE TABLE IF NOT EXISTS `vehicle` (
 --
 
 INSERT INTO `vehicle` (`id`, `user_id`, `brand`, `model`, `calendar_start_date`, `calendar_end_date`, `price_per_day`, `image_name`, `image_size`, `updated_at`, `numberplate`, `length`, `height`, `gearbox`, `fuel_type`, `kms`, `year`, `fuel_consumption`, `adblue`, `description`, `places_nb`, `zip`, `city`, `country`) VALUES
-(5, 1, 'Ford', 'BENIMAR SPORT', '2024-05-15', '2024-06-03', 50, 'ford-benimar-sport-6644db7738c45642724659.jpeg', 264654, '2024-05-15 15:57:43', '952-BM-85', 6.9, 3.09, 'Manuelle', 'Diesel', 30000, '2018-04-03', '10', 'Oui', '<div>Nous louons notre Béni avec qui nous aimons passer des bons moments à la mer, à la montagne, pour visiter le patrimoine culturel français...<br>Il est particulièrement adapté aux familles avec des enfants.<br>Nous y tenons beaucoup et nous vous demanderons d\'en prendre grand soin également.<br>Les animaux ne sont pas acceptés.</div>', 4, '69000', 'Lyon', 'France'),
+(5, 1, 'Ford', 'BENIMAR SPORT', '2024-05-11', '2024-06-21', 50, 'ford-benimar-sport-6644db7738c45642724659.jpeg', 264654, '2024-05-15 15:57:43', '952-BM-85', 6.9, 3.09, 'Manuelle', 'Diesel', 30000, '2018-04-03', '10', 'Oui', '<div>Nous louons notre Béni avec qui nous aimons passer des bons moments à la mer, à la montagne, pour visiter le patrimoine culturel français...<br>Il est particulièrement adapté aux familles avec des enfants.<br>Nous y tenons beaucoup et nous vous demanderons d\'en prendre grand soin également.<br>Les animaux ne sont pas acceptés.</div>', 4, '69000', 'Lyon', 'France'),
 (6, 1, 'Mercedes', 'VITO MARCO POLO W638', '2024-05-15', '2024-05-31', 40, 'mercedes-vito-66448b4ac78a2168976527.jpeg', 138245, '2024-05-15 10:15:38', '952-BM-86', 4.7, 1.85, 'Manuelle', 'Diesel', 26000, '2002-01-01', '9', 'Non', '<div>Salut, moi c\'est Mathieu 27 ans et grand adepte de vanlife et d\'aventure !<br>Je vous propose de louer mon van, Sergio, qui vous emmènera partout avec son moteur de 122ch très bien entretenu et qui consomme peu pour son poids (8,5L/100km), ses pneus tous neufs, son aménagement ultra complet et son style rétro !<br>Sa petite taille lui permet de passer sous les barres de 2m (et même les barres d\'1,90m) mais son toit ouvrant cache un couchage confortable de deux places et complète la banquette arrière qui se transforme en lit double en moins d\'une minute. Ainsi vous pourrez partir en vacances jusqu\'à 4 pour vous éclater en famille ou entres amis !<br>Je l\'ai équipé en vaisselle et accessoires de camping (couverts, casseroles, table de camping extérieure avec 4 tabourets dépliants, etc.), il y a tout ce qu\'il faut ! Et je peux même vous mettre des draps à disposition.<br>A 15min à pied de la gare d\'Aix-les-Bains, vous pourrez facilement récupérer le véhicule à pied (ou garer le votre).<br>N\'hésitez pas si vous avez des demandes particulières, je ferai ce que je peux pour vous faciliter la tâche, je vous expliquerai le fonctionnement du véhicule et les précautions à prendre mais rassurez vous, il se conduit très bien, il est très fonctionnel et très bien entretenu (normal j\'y veille personnellement) alors j\'espère que vous en prendre grand soin également.</div>', 4, '13000', 'Marseille', 'France'),
 (7, 1, 'Volkswagen', 'GRAND CALIFORNIA', '2024-05-15', '2024-05-31', 35, 'volkswagen-grand-california-66448c3b8d84c764720453.jpeg', 387171, '2024-05-15 10:19:39', '952-BM-87', 6, 3, 'Automatique', 'Diesel', 40000, '2021-05-07', '11', 'Oui', '<div>Superbe grand California 600.<br>Van grande hauteur idéal pour 4 personnes été comme hiver.<br>Son moteur 177 cv et sa boîte automatique robotisée vous emmèneront partout.<br>Très moderne très fonctionnel très bien équipé.</div>', 4, '33000', 'Bordeaux', 'France');
 
@@ -184,7 +184,7 @@ CREATE TABLE IF NOT EXISTS `wiki_global_calendar` (
 --
 
 INSERT INTO `wiki_global_calendar` (`id`, `start_date`, `end_date`) VALUES
-(1, '2024-05-15', '2024-06-01');
+(1, '2024-05-13', '2024-06-16');
 
 --
 -- Contraintes pour les tables déchargées
