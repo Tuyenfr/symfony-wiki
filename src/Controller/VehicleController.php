@@ -50,12 +50,11 @@ class VehicleController extends AbstractController
                 $singleCalendar->addDateRange($startDateTimestamp, $endDateTimestamp);
             }
 
-            $dates = $singleCalendar->dates;
             $price = $vehicleArray[0]['price_per_day'];
-
-            foreach ($dates as $date) {
-                $date['pricePerDay'] = $price;
-            }
+            $singleCalendar->updatePricePerDay($price);
+            $dates = $singleCalendar->dates;
+            //var_dump($singleCalendar->dates);
+    
         }
 
         $websiteName = 'Wikicampers';
