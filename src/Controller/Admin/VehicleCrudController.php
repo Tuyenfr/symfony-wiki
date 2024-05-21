@@ -32,6 +32,9 @@ class VehicleCrudController extends AbstractCrudController
         yield TextField::new('brand', 'Marque');
         yield TextField::new('model', 'Modèle');
         yield TextField::new('numberplate', 'Immatriculation');
+        yield DateField::new('calendar_start_date', 'Début calendrier');
+        yield DateField::new('calendar_end_date', 'Fin calendrier');
+        yield NumberField::new('price_per_day', 'Prix par jour');
         yield NumberField::new('length', 'Longueur')->hideOnIndex();
         yield NumberField::new('height', 'Hauteur')->hideOnIndex();
         yield TextField::new('gearbox', 'Boîte de vitesse');
@@ -45,9 +48,7 @@ class VehicleCrudController extends AbstractCrudController
         yield AssociationField::new('user', 'Utilisateur');
         yield TextareaField::new('imageFile')->setFormType(VichImageType::class)->hideOnIndex();
         yield ImageField::new('imageName')->setBasePath($vehiclesImagesPath)->hideOnForm();
-        yield DateField::new('calendar_start_date', 'Début calendrier');
-        yield DateField::new('calendar_end_date', 'Fin calendrier');
-        yield NumberField::new('price_per_day', 'Prix par jour');
+    
         
     }
     
