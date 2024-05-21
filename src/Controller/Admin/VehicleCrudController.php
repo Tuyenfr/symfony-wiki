@@ -47,6 +47,7 @@ class VehicleCrudController extends AbstractCrudController
         yield ImageField::new('imageName')->setBasePath($vehiclesImagesPath)->hideOnForm();
         yield DateField::new('calendar_start_date', 'Début calendrier');
         yield DateField::new('calendar_end_date', 'Fin calendrier');
+        yield NumberField::new('price_per_day', 'Prix par jour');
         
     }
     
