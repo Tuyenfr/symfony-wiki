@@ -1,20 +1,47 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Vehicle description{% endblock %}
+{% block title %}Vehicle description
+{% endblock %}
 
 {% block body %}
 
-<div class="row justify-content-center" style="margin-top: 80px">
+	<div class="row justify-content-center" style="margin-top: 80px">
 
-<div class="col-md-4 my-2 d-flex">
-    <div class="card w-100">
-        <img src="{{ vich_uploader_asset(vehicle, 'imageFile')}}" class="img-fluid" alt="vehicle">
-        <div class="card-body">
-            <h4>{{ vehicle.brand }} {{ vehicle.model }} </h4>
-            <p style="font-size: 12px"> {{ vehicle.description|raw }} </p>
-        </div>
-    </div>
-</div>
+		<div class="col-md-4 my-2 d-flex">
+			<div class="card w-100">
+				<img src="{{ vich_uploader_asset(vehicle, 'imageFile')}}" class="img-fluid" alt="vehicle">
+				<div class="card-body">
+					<h4>{{ vehicle.brand }}
+						{{ vehicle.model }}
+					</h4>
+					<p style="font-size: 12px">
+						{{ vehicle.description|raw }}
+					</p>
+				</div>
+			</div>
+		</div>
 
+		<div class="row justify-content-center" style="margin-top: 80px">
+			<div class="col-md-4 my-2">
+				<h3>Calendrier</h3>
 
-{% endblock %}
+				{% for date in dates %}
+					<div>
+						<p>
+							{{ date.month }}
+							{{ date.year }}</p>
+						<p>
+							{{ date.weekday }}
+						</p>
+						<p>
+							{{ date.day }}
+						</p>
+                        <p>
+							{{ date.pricePerDay }} €
+						</p>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+
+	{% endblock %}

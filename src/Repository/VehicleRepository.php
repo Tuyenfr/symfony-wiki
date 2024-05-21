@@ -22,28 +22,26 @@ class VehicleRepository extends ServiceEntityRepository
         parent::__construct($registry, Vehicle::class);
     }
 
-//    /**
-//     * @return Vehicle[] Returns an array of Vehicle objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('v')
-//            ->andWhere('v.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('v.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+     * @return Vehicle[] Returns an array of Vehicle objects
+     */
+    public function findFieldsById($id): array
+    {
+        return $this->createQueryBuilder('v')
+            ->select('v.calendar_start_date', 'v.calendar_end_date', 'v.price_per_day')
+            ->where('v.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getResult();
+    }
 
-//    public function findOneBySomeField($value): ?Vehicle
-//    {
-//        return $this->createQueryBuilder('v')
-//            ->andWhere('v.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    //    public function findOneBySomeField($value): ?Vehicle
+    //    {
+    //        return $this->createQueryBuilder('v')
+    //            ->andWhere('v.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->getQuery()
+    //            ->getOneOrNullResult()
+    //        ;
+    //    }
 }

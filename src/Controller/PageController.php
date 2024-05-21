@@ -45,7 +45,7 @@ class PageController extends AbstractController
     #[Route('/calendar', name: 'app_calendar')]
     public function calendar(WikiGlobalCalendarRepository $globaldates, $id = 1): Response
     {
-
+    
         $globalCalendar = new GlobalCalendar();
 
         if ($globalCalendar) {
@@ -60,9 +60,9 @@ class PageController extends AbstractController
             if ($startDateTimestamp && $endDateTimestamp) {
                 $globalCalendar->addDateRange($startDateTimestamp, $endDateTimestamp);
             }
-        }
 
-        $dates = $globalCalendar->dates;
+            $dates = $globalCalendar->dates;
+        }
 
         $websiteName = 'Wikicampers';
 

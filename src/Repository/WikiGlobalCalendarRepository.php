@@ -32,7 +32,7 @@ class WikiGlobalCalendarRepository extends ServiceEntityRepository
             ->where('p.id = :id')
             ->setParameter('id', $id)
             ->getQuery()
-            ->getResult(); // ou ->getResult() si vous attendez plusieurs résultats
+            ->getResult();
     }
 
     //    /**

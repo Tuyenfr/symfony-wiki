@@ -89,6 +89,9 @@ class Vehicle
     #[ORM\Column(length: 255)]
     private ?string $Zip = null;
 
+    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: '0')]
+    private ?string $price_per_day = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -354,6 +357,18 @@ class Vehicle
     public function setZip(string $Zip): static
     {
         $this->Zip = $Zip;
+
+        return $this;
+    }
+
+    public function getPricePerDay(): ?string
+    {
+        return $this->price_per_day;
+    }
+
+    public function setPricePerDay(string $price_per_day): static
+    {
+        $this->price_per_day = $price_per_day;
 
         return $this;
     }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3308
--- Généré le : ven. 17 mai 2024 à 15:02
+-- Généré le : mar. 21 mai 2024 à 09:12
 -- Version du serveur : 8.2.0
 -- Version de PHP : 8.2.13
 
@@ -71,7 +71,8 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 ('DoctrineMigrations\\Version20240515140057', '2024-05-15 14:01:13', 75),
 ('DoctrineMigrations\\Version20240517083115', '2024-05-17 08:31:31', 92),
 ('DoctrineMigrations\\Version20240517145559', '2024-05-17 14:56:13', 77),
-('DoctrineMigrations\\Version20240517145734', '2024-05-17 14:57:50', 58);
+('DoctrineMigrations\\Version20240517145734', '2024-05-17 14:57:50', 58),
+('DoctrineMigrations\\Version20240521090900', '2024-05-21 09:11:28', 80);
 
 -- --------------------------------------------------------
 
@@ -133,6 +134,7 @@ CREATE TABLE IF NOT EXISTS `vehicle` (
   `model` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `calendar_start_date` date NOT NULL,
   `calendar_end_date` date NOT NULL,
+  `price_per_day` decimal(10,0) NOT NULL,
   `image_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image_size` int DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL COMMENT '(DC2Type:datetime_immutable)',
@@ -158,10 +160,10 @@ CREATE TABLE IF NOT EXISTS `vehicle` (
 -- Déchargement des données de la table `vehicle`
 --
 
-INSERT INTO `vehicle` (`id`, `user_id`, `brand`, `model`, `calendar_start_date`, `calendar_end_date`, `image_name`, `image_size`, `updated_at`, `numberplate`, `length`, `height`, `gearbox`, `fuel_type`, `kms`, `year`, `fuel_consumption`, `adblue`, `description`, `places_nb`, `zip`, `city`, `country`) VALUES
-(5, 1, 'Ford', 'BENIMAR SPORT', '2024-05-15', '2024-07-31', 'ford-benimar-sport-6644db7738c45642724659.jpeg', 264654, '2024-05-15 15:57:43', '952-BM-85', 6.9, 3.09, 'Manuelle', 'Diesel', 30000, '2018-04-03', '10', 'Oui', '<div>Nous louons notre Béni avec qui nous aimons passer des bons moments à la mer, à la montagne, pour visiter le patrimoine culturel français...<br>Il est particulièrement adapté aux familles avec des enfants.<br>Nous y tenons beaucoup et nous vous demanderons d\'en prendre grand soin également.<br>Les animaux ne sont pas acceptés.</div>', 4, '69000', 'Lyon', 'France'),
-(6, 1, 'Mercedes', 'VITO MARCO POLO W638', '2024-05-15', '2024-08-31', 'mercedes-vito-66448b4ac78a2168976527.jpeg', 138245, '2024-05-15 10:15:38', '952-BM-86', 4.7, 1.85, 'Manuelle', 'Diesel', 26000, '2002-01-01', '9', 'Non', '<div>Salut, moi c\'est Mathieu 27 ans et grand adepte de vanlife et d\'aventure !<br>Je vous propose de louer mon van, Sergio, qui vous emmènera partout avec son moteur de 122ch très bien entretenu et qui consomme peu pour son poids (8,5L/100km), ses pneus tous neufs, son aménagement ultra complet et son style rétro !<br>Sa petite taille lui permet de passer sous les barres de 2m (et même les barres d\'1,90m) mais son toit ouvrant cache un couchage confortable de deux places et complète la banquette arrière qui se transforme en lit double en moins d\'une minute. Ainsi vous pourrez partir en vacances jusqu\'à 4 pour vous éclater en famille ou entres amis !<br>Je l\'ai équipé en vaisselle et accessoires de camping (couverts, casseroles, table de camping extérieure avec 4 tabourets dépliants, etc.), il y a tout ce qu\'il faut ! Et je peux même vous mettre des draps à disposition.<br>A 15min à pied de la gare d\'Aix-les-Bains, vous pourrez facilement récupérer le véhicule à pied (ou garer le votre).<br>N\'hésitez pas si vous avez des demandes particulières, je ferai ce que je peux pour vous faciliter la tâche, je vous expliquerai le fonctionnement du véhicule et les précautions à prendre mais rassurez vous, il se conduit très bien, il est très fonctionnel et très bien entretenu (normal j\'y veille personnellement) alors j\'espère que vous en prendre grand soin également.</div>', 4, '13000', 'Marseille', 'France'),
-(7, 1, 'Volkswagen', 'GRAND CALIFORNIA', '2024-05-15', '2024-09-30', 'volkswagen-grand-california-66448c3b8d84c764720453.jpeg', 387171, '2024-05-15 10:19:39', '952-BM-87', 6, 3, 'Automatique', 'Diesel', 40000, '2021-05-07', '11', 'Oui', '<div>Superbe grand California 600.<br>Van grande hauteur idéal pour 4 personnes été comme hiver.<br>Son moteur 177 cv et sa boîte automatique robotisée vous emmèneront partout.<br>Très moderne très fonctionnel très bien équipé.</div>', 4, '33000', 'Bordeaux', 'France');
+INSERT INTO `vehicle` (`id`, `user_id`, `brand`, `model`, `calendar_start_date`, `calendar_end_date`, `price_per_day`, `image_name`, `image_size`, `updated_at`, `numberplate`, `length`, `height`, `gearbox`, `fuel_type`, `kms`, `year`, `fuel_consumption`, `adblue`, `description`, `places_nb`, `zip`, `city`, `country`) VALUES
+(5, 1, 'Ford', 'BENIMAR SPORT', '2024-05-15', '2024-07-31', 0, 'ford-benimar-sport-6644db7738c45642724659.jpeg', 264654, '2024-05-15 15:57:43', '952-BM-85', 6.9, 3.09, 'Manuelle', 'Diesel', 30000, '2018-04-03', '10', 'Oui', '<div>Nous louons notre Béni avec qui nous aimons passer des bons moments à la mer, à la montagne, pour visiter le patrimoine culturel français...<br>Il est particulièrement adapté aux familles avec des enfants.<br>Nous y tenons beaucoup et nous vous demanderons d\'en prendre grand soin également.<br>Les animaux ne sont pas acceptés.</div>', 4, '69000', 'Lyon', 'France'),
+(6, 1, 'Mercedes', 'VITO MARCO POLO W638', '2024-05-15', '2024-08-31', 0, 'mercedes-vito-66448b4ac78a2168976527.jpeg', 138245, '2024-05-15 10:15:38', '952-BM-86', 4.7, 1.85, 'Manuelle', 'Diesel', 26000, '2002-01-01', '9', 'Non', '<div>Salut, moi c\'est Mathieu 27 ans et grand adepte de vanlife et d\'aventure !<br>Je vous propose de louer mon van, Sergio, qui vous emmènera partout avec son moteur de 122ch très bien entretenu et qui consomme peu pour son poids (8,5L/100km), ses pneus tous neufs, son aménagement ultra complet et son style rétro !<br>Sa petite taille lui permet de passer sous les barres de 2m (et même les barres d\'1,90m) mais son toit ouvrant cache un couchage confortable de deux places et complète la banquette arrière qui se transforme en lit double en moins d\'une minute. Ainsi vous pourrez partir en vacances jusqu\'à 4 pour vous éclater en famille ou entres amis !<br>Je l\'ai équipé en vaisselle et accessoires de camping (couverts, casseroles, table de camping extérieure avec 4 tabourets dépliants, etc.), il y a tout ce qu\'il faut ! Et je peux même vous mettre des draps à disposition.<br>A 15min à pied de la gare d\'Aix-les-Bains, vous pourrez facilement récupérer le véhicule à pied (ou garer le votre).<br>N\'hésitez pas si vous avez des demandes particulières, je ferai ce que je peux pour vous faciliter la tâche, je vous expliquerai le fonctionnement du véhicule et les précautions à prendre mais rassurez vous, il se conduit très bien, il est très fonctionnel et très bien entretenu (normal j\'y veille personnellement) alors j\'espère que vous en prendre grand soin également.</div>', 4, '13000', 'Marseille', 'France'),
+(7, 1, 'Volkswagen', 'GRAND CALIFORNIA', '2024-05-15', '2024-09-30', 0, 'volkswagen-grand-california-66448c3b8d84c764720453.jpeg', 387171, '2024-05-15 10:19:39', '952-BM-87', 6, 3, 'Automatique', 'Diesel', 40000, '2021-05-07', '11', 'Oui', '<div>Superbe grand California 600.<br>Van grande hauteur idéal pour 4 personnes été comme hiver.<br>Son moteur 177 cv et sa boîte automatique robotisée vous emmèneront partout.<br>Très moderne très fonctionnel très bien équipé.</div>', 4, '33000', 'Bordeaux', 'France');
 
 -- --------------------------------------------------------
 
