@@ -28,11 +28,22 @@ class Calendar
             'month_fr_full' => $month_fr_full,
             'month_fr' => $month_fr,
             'year' => $year,
-            'date' => $fulldate,
+            'fulldate' => $fulldate,
             'pricePerDay' => $price,
             'availability' => $availability,
         ];
 
         $this->dates[] = $storedDate;
+
+        $today = date('Y-m-d');
+        $todaytimestamp = strtotime($today);
+
+        $datescount = count($this->dates);
+
+        for ($i = 0; $i < $datescount; $i++) {
+            if ($this->dates[$i]['fulldate'] < $todaytimestamp) {
+                $this->dates[$i]['availability'] = 'N';
+            }
+        }
     }
 }

@@ -10,6 +10,7 @@ class GlobalCalendar extends Calendar
         for ($i = $startDate; $i <= $endDate; $i = strtotime('+1 day', $i)) {
             $this->add($i);
         }
+
     }
 
 }
