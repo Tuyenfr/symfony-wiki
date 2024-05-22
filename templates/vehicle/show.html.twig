@@ -34,8 +34,13 @@
 						{{ date.weekday_fr }} {{ date.day }}
 						<br>
 						<br>
-						{{ date.pricePerDay }}
-						€
+						{{ date.pricePerDay }} € 
+						{% if date.availability == 'Y' %}
+						<img src="{{ asset('build/images/oui.png') }}" alt="check" height="20">
+						{% else %}
+						<img src="{{ asset('build/images/non.png') }}" alt="check" height="20">
+						{% endif %}
+
 					</p>
 				</div>
 
