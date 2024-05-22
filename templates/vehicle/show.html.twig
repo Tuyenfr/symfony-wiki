@@ -29,11 +29,10 @@
 			{% for date in dates %}
 				<div class="color">
 					<p>
-						{{ date.month }} {{ date.year }}
+						{{ date.month_fr }} {{ date.year }}
 						<br>
-						{{ date.weekday_fr }}
+						{{ date.weekday_fr }} {{ date.day }}
 						<br>
-						{{ date.day }}
 						<br>
 						{{ date.pricePerDay }}
 						€
