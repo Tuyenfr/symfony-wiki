@@ -15,7 +15,7 @@ class Calendar
         $month_fr_full = str_replace(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juimlet', 'Août', 'Septembre', 'October', 'Novembre', 'Décembre'], $month);
         $month_fr = str_replace(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], ['Janv', 'Fév', 'Mars', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sep', 'Oct', 'Nov', 'Déc'], $month);
         $year = date('Y', $date);
-        $fulldate = $date;
+        $timestampDate = $date;
         $price = 0;
         $availability = 'Y';
 
@@ -28,7 +28,7 @@ class Calendar
             'month_fr_full' => $month_fr_full,
             'month_fr' => $month_fr,
             'year' => $year,
-            'fulldate' => $fulldate,
+            'timestampDate' => $timestampDate,
             'pricePerDay' => $price,
             'availability' => $availability,
         ];
@@ -41,7 +41,7 @@ class Calendar
         $datescount = count($this->dates);
 
         for ($i = 0; $i < $datescount; $i++) {
-            if ($this->dates[$i]['fulldate'] < $todaytimestamp) {
+            if ($this->dates[$i]['timestampDate'] < $todaytimestamp) {
                 $this->dates[$i]['availability'] = 'N';
             }
         }
