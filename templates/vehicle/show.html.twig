@@ -26,12 +26,12 @@
 		</div>
 
 		<div class="justify-content-center" id="calendar" style="margin-top: 20px; margin-bottom: 100px">
-			{% for date in dates %}
+			{% for date in currentdates %}
 				<div class="color">
 					<p>
 						{{ date.month_fr }} {{ date.year }}
 						<br>
-						{{ date.weekday_fr }} {{ date.day }}
+						<strong>{{ date.weekday_fr }} {{ date.day }}</strong>
 						<br>
 						<br>
 						{{ date.pricePerDay }} € 

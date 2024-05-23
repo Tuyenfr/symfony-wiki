@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Vehicle;
 use App\Phpscripts\SingleCalendar;
+use App\Phpscripts\SingleCurrentCalendar;
 use App\Repository\VehicleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -31,10 +32,6 @@ class VehicleController extends AbstractController
     {
         $vehicle = $entityManager->getRepository(Vehicle::class)->find($id);
 
-        if (!$vehicle) {
-            throw $this->createNotFoundException('No vehicle found for id ' . $id);
-        }
-
         $singleCalendar = new SingleCalendar();
 
         if ($singleCalendar) {
@@ -54,6 +51,11 @@ class VehicleController extends AbstractController
             $singleCalendar->updatePricePerDay($price);
             $dates = $singleCalendar->dates;
 
+            // Create current calendar
+
+            $currentCalendar = new SingleCurrentCalendar();
+            $currentdates = $currentCalendar->currentCalendar($dates, $vehicleArray, $startDateTimestamp, $endDateTimestamp);
+
         }
 
         $websiteName = 'Wikicampers';
@@ -63,7 +65,8 @@ class VehicleController extends AbstractController
             [
                 'vehicle' => $vehicle,
                 'dates' => $dates,
-                'websitename' => $websiteName,
+                'currentdates' => $currentdates,
+                'websitename' => $websiteName
             ]
         );
     }
