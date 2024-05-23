@@ -64,7 +64,6 @@ class VehicleController extends AbstractController
             'vehicle/show.html.twig',
             [
                 'vehicle' => $vehicle,
-                'dates' => $dates,
                 'currentdates' => $currentdates,
                 'websitename' => $websiteName
             ]
