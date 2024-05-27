@@ -21,32 +21,51 @@
 			</div>
 		</div>
 
-		<div class="justify-content-center d-flex" style="margin-top: 30px">
-				<h3>Calendrier</h3>
+		<div class="justify-content-center d-flex" style="margin-top: 30px;">
+			<h3>Calendrier</h3>
 		</div>
 
-		<div class="justify-content-center" id="calendar" style="margin-top: 20px; margin-bottom: 100px">
-			{% for date in currentdates %}
-				<div class="color">
-					<p>
-						{{ date.month_fr }} {{ date.year }}
-						<br>
-						<strong>{{ date.weekday_fr }} {{ date.day }}</strong>
-						<br>
-						<br>
-						{{ date.pricePerDay }} € 
-						{% if date.availability == 'Y' %}
-						<img src="{{ asset('build/images/oui.png') }}" alt="check" height="20">
-						{% else %}
-						<img src="{{ asset('build/images/non.png') }}" alt="check" height="22">
-						{% endif %}
-					</p>
-				</div>
+		<div class="row justify-content-center d-flex">
 
+			{% for i in 1..(loop) %}
+
+				{% set monthyear = 8 + (i*35) - 35 %}
+				{% set block_start = -35 %}
+				{% set block_end = i * 35 %}
+				{% set block_range = i * 35 %}
+
+				{{ currentdates[monthyear]['month_fr_full'] }}
+				{{ currentdates[monthyear]['year'] }}
+
+				<div class="justify-content-center" id="calendar" style="margin-top: 20px; margin-bottom: 20px; height: fit-content">
+
+					{% for date in currentdates|slice((block_start + block_range), block_end) %}
+
+						<div class="color">
+							<p>
+								{{ date.month_fr }}
+								{{ date.year }}
+								<br>
+								<strong>{{ date.weekday_fr }}
+									{{ date.day }}</strong>
+								<br>
+								<br>
+								{{ date.pricePerDay }}
+								€
+								{% if date.availability == 'Y' %}
+									<img src="{{ asset('build/images/oui.png') }}" alt="check" height="20">
+								{% else %}
+									<img src="{{ asset('build/images/non.png') }}" alt="check" height="22">
+								{% endif %}
+							</p>
+						</div>
+
+					{% endfor %}
+				</div>
 			{% endfor %}
 		</div>
 
-	<div style="height: 300px">
-	</div>
+
+		<div style="height: 300px"></div>
 
 	{% endblock %}

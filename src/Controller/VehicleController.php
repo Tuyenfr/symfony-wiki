@@ -55,6 +55,7 @@ class VehicleController extends AbstractController
 
             $currentCalendar = new SingleCurrentCalendar();
             $currentdates = $currentCalendar->currentCalendar($dates, $vehicleArray, $startDateTimestamp, $endDateTimestamp);
+            $loop = count($currentdates) / 35;
 
         }
 
@@ -65,6 +66,7 @@ class VehicleController extends AbstractController
             [
                 'vehicle' => $vehicle,
                 'currentdates' => $currentdates,
+                'loop' => $loop,
                 'websitename' => $websiteName
             ]
         );
