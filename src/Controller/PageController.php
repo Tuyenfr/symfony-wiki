@@ -2,18 +2,19 @@
 
 namespace App\Controller;
 
-use App\Entity\WikiGlobalCalendar;
-use App\Repository\WikiGlobalCalendarRepository;
-use App\Phpscripts\GlobalCalendar;
 use DateTime;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\WikiGlobalCalendar;
+use App\Phpscripts\GlobalCalendar;
+use App\Repository\VehicleRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\WikiGlobalCalendarRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class PageController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
-    public function index(): Response
+    public function index(VehicleRepository $vehiclearray): Response
     {
         $websiteName = 'Wikicampers';
         $teaser1 = 'Location et achat de camping-cars entre particuliers';
@@ -27,12 +28,14 @@ class PageController extends AbstractController
                     Du combi vintage au camping-car intégral moderne, des milliers de véhicules aménagés en location vous attendent pour tracer votre chemin.
                     Installez-vous confortablement et réservez en quelques clics.";
 
+        $vehicles = $vehiclearray->findAll();
 
         return $this->render('page/index.html.twig', [
             'websitename' => $websiteName,
             'teaser1' => $teaser1,
             'teaser2' => $teaser2,
             'teaser3' => $teaser3,
+            'vehicles' => $vehicles
         ]);
     }
 
@@ -45,7 +48,7 @@ class PageController extends AbstractController
     #[Route('/calendar', name: 'app_calendar')]
     public function calendar(WikiGlobalCalendarRepository $globaldates, $id = 1): Response
     {
-    
+
         $globalCalendar = new GlobalCalendar();
 
         if ($globalCalendar) {
