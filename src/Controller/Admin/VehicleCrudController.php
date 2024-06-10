@@ -32,6 +32,9 @@ class VehicleCrudController extends AbstractCrudController
         yield TextField::new('brand', 'Marque');
         yield TextField::new('model', 'Modèle');
         yield TextField::new('numberplate', 'Immatriculation');
+        yield TextField::new('city', 'Ville');
+        yield TextField::new('zip', 'Code postal');
+        yield TextField::new('country', 'Pays');
         yield DateField::new('calendar_start_date', 'Début calendrier');
         yield DateField::new('calendar_end_date', 'Fin calendrier');
         yield NumberField::new('price_per_day', 'Prix par jour');
