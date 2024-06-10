@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Vehicle;
 use App\Phpscripts\SingleCalendar;
 use App\Phpscripts\SingleCurrentCalendar;
+use App\Phpscripts\SingleCurrentCalendarArray;
 use App\Repository\VehicleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -55,7 +56,16 @@ class VehicleController extends AbstractController
 
             $currentCalendar = new SingleCurrentCalendar();
             $currentdates = $currentCalendar->currentCalendar($dates, $vehicleArray, $startDateTimestamp, $endDateTimestamp);
-            $loop = count($currentdates) / 35;
+
+            $arrayCurrentCalendar = new SingleCurrentCalendarArray();
+            $arrayCurrentCalendarDates = $arrayCurrentCalendar->arrayCurrentCalendar($currentdates);
+            $count = count($arrayCurrentCalendarDates);
+            $loop = $count - 1;
+
+            //echo $loop;
+
+            //var_dump($arrayCurrentCalendarDates);
+
 
         }
 
@@ -65,7 +75,7 @@ class VehicleController extends AbstractController
             'vehicle/show.html.twig',
             [
                 'vehicle' => $vehicle,
-                'currentdates' => $currentdates,
+                'arraycurrentdates' => $arrayCurrentCalendarDates,
                 'loop' => $loop,
                 'websitename' => $websiteName
             ]

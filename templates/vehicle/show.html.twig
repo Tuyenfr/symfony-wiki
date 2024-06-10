@@ -25,44 +25,41 @@
 			<h3>Calendrier</h3>
 		</div>
 
-		<div class="row justify-content-center d-flex">
+		{% for i in 1..(loop) %}
+			<div class="row justify-content-center d-flex">
 
-			{% for i in 1..(loop) %}
+				{{ arraycurrentdates[i][10]['month_fr_full'] }}
+				{{ arraycurrentdates[i][10]['year'] }}
 
-				{% set monthyear = 8 + (i*35) - 35 %}
-				{% set block_start = -35 %}
-				{% set block_end = i * 35 %}
-				{% set block_range = i * 35 %}
+				<div class="justify-content-center" id="calendar">
 
-				{{ currentdates[monthyear]['month_fr_full'] }}
-				{{ currentdates[monthyear]['year'] }}
+					{% for item in arraycurrentdates[i] %}
 
-				<div class="justify-content-center" id="calendar" style="margin-top: 20px; margin-bottom: 20px; height: fit-content">
-
-					{% for date in currentdates|slice((block_start + block_range), block_end) %}
-
-						<div class="color">
+						<div class="square d-flex flex-column justify-content-between">
 							<p>
-								{{ date.month_fr }}
-								{{ date.year }}
+								{{ item.month_fr_full }}
+								{{ item.year }}
 								<br>
-								<strong>{{ date.weekday_fr }}
-									{{ date.day }}</strong>
-								<br>
-								<br>
-								{{ date.pricePerDay }}
+								<strong>{{ item.weekday_fr }}
+									{{ item.day }}</strong>
+								<p class="d-flex flex-row justify-content-between">
+								{{ item.pricePerDay }}
 								€
-								{% if date.availability == 'Y' %}
+								{% if item.availability == 'Y' %}
 									<img src="{{ asset('build/images/oui.png') }}" alt="check" height="20">
 								{% else %}
 									<img src="{{ asset('build/images/non.png') }}" alt="check" height="22">
 								{% endif %}
+								<p>
 							</p>
 						</div>
-
 					{% endfor %}
-				</div>
-			{% endfor %}
-		</div>
 
-	{% endblock %}
+				</div>
+
+			</div>
+		{% endfor %}
+
+	</div>
+
+{% endblock %}

@@ -1,27 +1,33 @@
 #calendar {
+    font-size: 11px;
     display: grid;
+    height: fit-content;
+    margin: 10px;
     width: 100%;
-    gap: 5px;
+    gap: 3px 3px;
     grid-template-areas: 
-    "head1 head2 head3 head4 head5 head6 head7"
-    "head8 head9 head10 head11 head12 head13 head14"
-    "head15 head16 head17 head18 head19 head20 head21"
-    "head22 head23 head24 head25 head26 head27 head28"
-    "head29 head30 head31 head32 head33 head34 head35";
-    grid-template-rows: 100px 100px 100px 100px 100px;
-    grid-template-columns: 100px 100px 100px 100px 100px 100px 100px;
-}
-
-#calendar > div > p {
-    grid-area: head1 head2 head3 head4 head5 head6 head7
+    head1 head2 head3 head4 head5 head6 head7
     head8 head9 head10 head11 head12 head13 head14
     head15 head16 head17 head18 head19 head20 head21
     head22 head23 head24 head25 head26 head27 head28
-    head29 head30 head31 head32 head33 head34 head35;
-    background-color: rgb(209, 203, 203);
-    padding: 3px;
+    head29 head30 head31 head32 head33 head34 head35
+    head36 head37 head38 head39 head40 head41 head45;
+    grid-template-rows: 100px 100px 100px 100px 100px 100px;
+    grid-template-columns: 100px 100px 100px 100px 100px 100px 100px;
 }
 
-.color {
+#calendar > div {
+    grid-area: 
+    head1 head2 head3 head4 head5 head6 head7
+    head8 head9 head10 head11 head12 head13 head14
+    head15 head16 head17 head18 head19 head20 head21
+    head22 head23 head24 head25 head26 head27 head28
+    head29 head30 head31 head32 head33 head34 head35
+    head36 head37 head38 head39 head40 head41 head45;
+    background-color: rgb(225, 213, 226);
+    padding: 14px 10px;
+}
+
+.square > p {
     color: rgb(82, 73, 180);
 }
